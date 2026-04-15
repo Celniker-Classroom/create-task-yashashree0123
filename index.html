@@ -1,10 +1,10 @@
 <!-- 
 Project: JavaScript Learning Quiz
 Purpose: To help students understand Javascript.
-Functionality: This wireframe uses text inputs and a checkAnswer() function 
-to compare user guesses against a predefined list of correct answers.
+Functionality: This quiz uses text inputs and a checkAnswer() function 
+to compare user guesses against a predefined list of correct answers,
+then displays a final score summary.
 -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,54 +14,68 @@ to compare user guesses against a predefined list of correct answers.
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <div class="container">
+        <header>
+            <h1>JS Knowledge Quiz</h1>
+            <p class="score-display">Current Score: <span id="score">0</span> / 5</p>
+        </header>
+        <hr>
 
-    <header>
-        <h1>JS Knowledge Quiz</h1>
-        <p>Current Score: <span id="score">0</span></p>
-    </header>
+        <!-- Question 1 -->
+        <div class="quiz-item">
+            <p><strong>Q1:</strong> Which keyword is used for a variable that <strong>cannot</strong> be reassigned?</p>
+            <input type="text" id="q0" placeholder="Type answer here">
+            <button onclick="checkAnswer(0, 'const')">Check Answer</button>
+            <p id="feedback0" class="feedback"></p>
+        </div>
 
-    <hr>
+        <!-- Question 2 -->
+        <div class="quiz-item">
+            <p><strong>Q2:</strong> What is the name of the popup box used to show a message?</p>
+            <input type="text" id="q1" placeholder="Type answer here">
+            <button onclick="checkAnswer(1, 'alert')">Check Answer</button>
+            <p id="feedback1" class="feedback"></p>
+        </div>
 
-    <!-- Question 1 -->
-    <div class="quiz-item">
-        <p><strong>Q1:</strong> Which keyword is used for a variable that <strong>cannot</strong> be reassigned?</p>
-        <input type="text" id="q0" placeholder="Type answer here">
-        <button onclick="checkAnswer(0, 'const')">Check Answer</button>
-        <p id="feedback0"></p>
-    </div>
+        <!-- Question 3 -->
+        <div class="quiz-item">
+            <p><strong>Q3:</strong> What symbol is used to access a property or method of an object?</p>
+            <input type="text" id="q2" placeholder="Type answer here">
+            <button onclick="checkAnswer(2, '.')">Check Answer</button>
+            <p id="feedback2" class="feedback"></p>
+        </div>
 
-    <!-- Question 2 -->
-    <div class="quiz-item">
-        <p><strong>Q2:</strong> What is the name of the popup box used to show a message?</p>
-        <input type="text" id="q1" placeholder="Type answer here">
-        <button onclick="checkAnswer(1, 'alert')">Check Answer</button>
-        <p id="feedback1"></p>
-    </div>
+        <!-- Question 4 -->
+        <div class="quiz-item">
+            <p><strong>Q4:</strong> What is the index number of the <em>first</em> item in a list/array?</p>
+            <input type="text" id="q3" placeholder="Type answer here">
+            <button onclick="checkAnswer(3, '0')">Check Answer</button>
+            <p id="feedback3" class="feedback"></p>
+        </div>
 
-    <!-- Question 3 -->
-    <div class="quiz-item">
-        <p><strong>Q3:</strong> What symbol is used to access a property or method of an object?</p>
-        <input type="text" id="q2" placeholder="Type answer here">
-        <button onclick="checkAnswer(2, '.')">Check Answer</button>
-        <p id="feedback2"></p>
-    </div>
+        <!-- Question 5 -->
+        <div class="quiz-item">
+            <p><strong>Q5:</strong> Which operator is used to check if two values are equal?</p>
+            <input type="text" id="q4" placeholder="Type answer here">
+            <button onclick="checkAnswer(4, '==')">Check Answer</button>
+            <p id="feedback4" class="feedback"></p>
+        </div>
 
-    <!-- Question 4 -->
-    <div class="quiz-item">
-        <p><strong>Q4:</strong> What is the index number of the <em>first</em> item in a list/array?</p>
-        <input type="text" id="q3" placeholder="Type answer here">
-        <button onclick="checkAnswer(3, '0')">Check Answer</button>
-        <p id="feedback3"></p>
-    </div>
+        <hr>
 
-    <!-- Question 5 -->
-    <div class="quiz-item">
-        <p><strong>Q5:</strong> Which operator is used to check if two values are equal?</p>
-        <input type="text" id="q4" placeholder="Type answer here">
-        <button onclick="checkAnswer(4, '==')">Check Answer</button>
-        <p id="feedback4"></p>
+        <!-- Results Section -->
+        <div class="action-buttons">
+            <button class="submit-btn" onclick="showResults()">📊 See My Results</button>
+            <button class="reset-btn" onclick="resetQuiz()">🔄 Reset Quiz</button>
+        </div>
+
+        <div id="results" class="results-box" style="display: none;">
+            <h2>Quiz Complete!</h2>
+            <p id="result-message"></p>
+        </div>
     </div>
 
     <script src="script.js"></script>
 </body>
 </html>
+
