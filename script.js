@@ -1,9 +1,6 @@
 const correctAnswers = ["const", "alert", ".", "0", "=="];
 
-const submit = document.getElementById("submit-quiz");
-submit.addEventListener("click", processQuiz);
-
-function processQuiz() {
+document.getElementById("submit-quiz").addEventListener("click", function () {
     let currentScore = 0;
 
     for (let i = 0; i < correctAnswers.length; i++) {
@@ -11,24 +8,13 @@ function processQuiz() {
         let feedbackText = document.getElementById("feedback" + i);
 
         if (userInput === correctAnswers[i]) {
-            feedbackText.textContent = "Correct!";
-            feedbackText.style.color = "green";
+            feedbackText.textContent = "Correct";
             currentScore++;
         } else {
-            feedbackText.textContent = "Incorrect ";
-            feedbackText.style.color = "red";
+            feedbackText.textContent = "Incorrect";
         }
     }
 
-    updateUI(currentScore);
-}
-
-function updateUI(finalScore) {
-    document.getElementById("score").textContent = finalScore;
-    
-    const resultsBox = document.getElementById("results");
-    const message = document.getElementById("result-message");
-    
-    resultsBox.style.display = "block";
-    message.textContent = "You scored " + finalScore + " out of " + correctAnswers.length;
-}
+    document.getElementById("results").style.display = "block";
+    document.getElementById("result-message").textContent = "You scored " + currentScore + " out of " + correctAnswers.length;
+});
