@@ -1,12 +1,5 @@
 const correctAnswers = ["const", "alert", ".", "0", "=="];
 
-function checkAnswer(userInput, correctAnswer){
-    if(userInput === correctAnswer){
-        return "Correct";
-    } else{
-        return "Incorrect";
-    }
-}
 document.getElementById("submit-quiz").addEventListener("click", function () {
     let currentScore = 0;
     for (let i = 0; i < correctAnswers.length; i++) {
@@ -18,6 +11,12 @@ document.getElementById("submit-quiz").addEventListener("click", function () {
         }
     }
 
+    return currentScore;
+}
+
+document.getElementById("submit-quiz").addEventListener("click", function () {
+    let score = checkAnswers();
     document.getElementById("results").style.display = "block";
-    document.getElementById("result-message").textContent = "You scored " + currentScore + " out of " + correctAnswers.length;
+    document.getElementById("result-message").textContent =
+        "You scored " + score + " out of " + correctAnswers.length;
 });
