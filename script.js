@@ -20,3 +20,22 @@ document.getElementById("submit-quiz").addEventListener("click", function () {
     document.getElementById("results").style.display = "block";
     document.getElementById("result-message").textContent = "You scored " + currentScore + " out of " + correctAnswers.length;
 });
+function checkAnswer() {
+    const userAnswer = document.getElementById('answerInput').value;
+    const correctAnswer = "-5"; // Example from our previous logic
+
+    if (userAnswer === correctAnswer) {
+        // Trigger the confetti!
+        confetti({
+            particleCount: 100,
+            spread: 70,
+            origin: { y: 0.6 }
+        });
+        
+        // Show your results div
+        document.getElementById('results').style.display = 'block';
+        document.getElementById('results').innerText = "Correct! 🎉";
+    } else {
+        alert("Try again!");
+    }
+}
